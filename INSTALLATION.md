@@ -2,6 +2,78 @@
 
 This guide walks you through installing all dependencies for the cross-platform template after forking or cloning the repository.
 
+## How Everything Connects: Understanding Your Template
+
+Before we start installing, let me explain how all the pieces of your template work together. This will help you understand what you're building.
+
+### 🏗️ The Architecture Overview
+
+**Your template creates a complete app with three parts:**
+
+1. **Backend (The Brain)** - Handles data, business logic, and API
+2. **Frontend (Web Interface)** - What users see in their browser
+3. **Mobile (Phone App)** - What users see on their phones
+4. **Shared (Common Code)** - Code that both web and mobile use
+
+### 🔄 How They Communicate
+
+**The Communication Flow:**
+```
+User Action (Web/Mobile) → Backend → Database
+                        ↑              ↓
+                        ← Response ← Data
+```
+
+**Real-World Example:**
+- User adds a product on their phone
+- Mobile app sends data to backend
+- Backend saves it to database
+- Backend sends back "success"
+- Mobile app shows "Product added!"
+
+### 🛠️ What Each Part Does
+
+**Backend (Express + PostgreSQL):**
+- **Receives requests** from web and mobile
+- **Processes data** (saves, updates, deletes)
+- **Stores information** in the database
+- **Sends responses** back to web and mobile
+
+**Frontend (React + Vite):**
+- **Shows the web interface** users interact with
+- **Sends requests** to the backend
+- **Displays data** from the backend
+- **Handles user interactions** (clicks, forms, etc.)
+
+**Mobile (React Native + Expo):**
+- **Shows the mobile interface** users interact with
+- **Sends requests** to the backend (same as web)
+- **Displays data** from the backend
+- **Works on iOS and Android**
+
+**Shared (TypeScript + Axios):**
+- **Common code** used by both web and mobile
+- **Type definitions** that work everywhere
+- **API client** for talking to the backend
+- **Utility functions** shared between platforms
+
+### 🎯 Why This Structure?
+
+**Benefits for You:**
+- **Write once, run everywhere** - Same code works on web and mobile
+- **Consistent experience** - Users get the same features on all platforms
+- **Easier maintenance** - Update shared code, affects both platforms
+- **Type safety** - TypeScript catches errors before they happen
+
+**What You Can Build:**
+- Social media apps
+- E-commerce stores
+- Task management tools
+- Learning platforms
+- Any app that needs web + mobile
+
+Now let's install everything and get your template running!
+
 ## Prerequisites
 
 Before you begin, make sure you have the following installed:
